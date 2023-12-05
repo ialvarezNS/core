@@ -1,0 +1,22 @@
+{
+    "name": "nuevosiglo/core",
+    "description": "Core for ns-proccesing, its charge of lot stuff to help",
+    "type": "library",
+    "require": {
+        "symfony/console": "5.0",
+        "nesbot/carbon": "2.20.0",
+        "phpmailer/phpmailer": "^6.5"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Nuevosiglo\\Core\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ialvarez",
+            "email": "ialvarez@nuevosiglo.com.uy"
+        }
+    ]
+}
