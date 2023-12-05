@@ -1,10 +1,6 @@
 <?php
 
-
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-
 
 /**
  * Clase para el envio de mail
@@ -42,9 +38,9 @@ class EmailFacade
     /**
      * Method to send mail 
      *
-     * @param [string] $to
-     * @param [string] $subject
-     * @param [string] $body
+     * @param string $to
+     * @param string $subject
+     * @param string $body
      * @param string $from
      * @param string $fromName
      * @return void
@@ -52,19 +48,18 @@ class EmailFacade
     public static function send($to, $subject, $body, $from = 'noreply@example.com', $fromName = 'Sender Name')
     {
         try {
-            $mailer = self::getMailer();
-            $mailer->setFrom($from, $fromName);
-            $mailer->addAddress($to);
-            $mailer->Subject = $subject;
-            $mailer->Body = $body;
+            self::$mailer->setFrom($from, $fromName);
+            self::$mailer->addAddress($to);
+            self::$mailer->Subject = $subject;
+            self::$mailer->Body = $body;
 
             
-            $result = $mailer->send();
+            $result = self::$mailer->send();
 
             return $result; 
         } catch (Exception $e) {
            
-            echo "Error al enviar el correo: {$mailer->ErrorInfo}";
+            echo "Error al enviar el correo";
             return false;
         }
     }
